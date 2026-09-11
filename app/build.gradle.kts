@@ -39,4 +39,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
+    // ---------- Interfaz (Material Design + AndroidX básico) ----------
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.11.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+// ---------- Red: consumir FakeStoreAPI ----------
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+// ---------- Almacenamiento seguro (token cifrado) ----------
+    implementation("androidx.security:security-crypto:1.1.0-alpha06")
 }
