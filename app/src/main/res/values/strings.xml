@@ -1,3 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">estructura</string>
+    <string name="app_name">Estructura</string>
+
+    <!-- Detalle del producto (US09) -->
+    <string name="titulo_detalle_producto">Detalle del producto</string>
+    <string name="subtitulo_descripcion">Hecho para tu día a día</string>
+    <string name="etiqueta_cantidad">Cantidad</string>
+    <string name="formato_subtotal">Subtotal: %1$s</string>
+    <string name="accion_agregar_carrito">Agregar al carrito</string>
+    <string name="accion_ver_carrito">Ver carrito</string>
+    <string name="error_cantidad_invalida">Selecciona una cantidad mayor a cero.</string>
+    <string name="aviso_error_red_pero_guardado_local">El servidor de práctica respondió con error, pero tu artículo ya quedó guardado en tu carrito.</string>
+    <string name="aviso_sin_conexion_pero_guardado_local">Sin conexión con el servidor de práctica. El artículo se guardó en tu carrito local.</string>
+
+    <!-- Mi carrito (US10) -->
+    <string name="titulo_mi_carrito">Mi carrito</string>
+    <string name="etiqueta_total">Total de productos</string>
+    <string name="accion_proceder_pago">Proceder al pago</string>
+    <string name="accion_explorar_catalogo">Explorar el catálogo</string>
+    <string name="mensaje_carrito_vacio_titulo">Tu carrito está vacío</string>
+    <string name="mensaje_carrito_vacio_subtitulo">Explora el catálogo y encuentra algo que te encante.</string>
+    <string name="aviso_simulacion_pago">Esta es una simulación académica: aquí terminaría el flujo de pago.</string>
+
+    <!-- Textos compartidos / accesibilidad -->
+    <string name="descripcion_regresar">Regresar</string>
+    <string name="descripcion_sumar">Aumentar cantidad</string>
+    <string name="descripcion_restar">Disminuir cantidad</string>
+    <string name="descripcion_eliminar">Eliminar del carrito</string>
+    <string name="descripcion_imagen_producto">Imagen del producto</string>
+
+    <!-- Plurales: cambian de texto según la cantidad (1 vs. varias) -->
+    <plurals name="unidades_anadidas">
+        <item quantity="one">%d unidad añadida al carrito.</item>
+        <item quantity="other">%d unidades añadidas al carrito.</item>
+    </plurals>
+
+    <plurals name="articulos_en_carrito">
+        <item quantity="one">%d artículo</item>
+        <item quantity="other">%d artículos</item>
+    </plurals>
 </resources>
