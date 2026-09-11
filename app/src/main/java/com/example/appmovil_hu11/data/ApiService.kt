@@ -9,18 +9,10 @@ interface ApiService {
     @GET("users")
     suspend fun getUsers(): List<UserResponse>
 
-    @GET("carts")
-    suspend fun getCarts(): List<CartResponse>
-
-    @GET("products")
-    suspend fun getProducts(): List<ProductResponse>
-
     companion object {
-        private const val BASE_URL = "https://fakestoreapi.com/"
-
         val instance: ApiService by lazy {
             Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl("https://fakestoreapi.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(ApiService::class.java)

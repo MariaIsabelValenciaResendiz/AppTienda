@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Color verde claro de fondo del badge -->
+    <solid android:color="#E3EFE8" />
+
+    <!-- Esquinas redondeadas -->
+    <corners android:radius="16dp" />
+
+</shape>
