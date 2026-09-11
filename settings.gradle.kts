@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "estructura"
+rootProject.name = "HU-8"
 include(":app")
  
