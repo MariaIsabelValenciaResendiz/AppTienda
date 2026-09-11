@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!--
+        Estos son los 5 colores del sistema visual de NOVA (página 02
+        del PDF de diseño). Si el archivo colors.xml del proyecto ya
+        existe (creado por Android Studio o por un compañero), pega
+        estas líneas DENTRO de él en lugar de dejar este archivo
+        aparte, para no tener dos archivos de colores duplicados.
+    -->
+    <color name="nova_accion">#B84420</color>       <!-- Botones principales / acción -->
+    <color name="nova_confianza">#146356</color>    <!-- Textos de confianza, enlaces, chips -->
+    <color name="nova_fondo">#FBF8F3</color>        <!-- Fondo general de las pantallas -->
+    <color name="nova_texto">#233D36</color>        <!-- Texto principal -->
+    <color name="nova_apoyo">#E4F0E8</color>        <!-- Tarjetas / fondos de apoyo -->
+
+    <!-- Colores auxiliares que no vienen en el PDF pero se necesitan para
+         completar la interfaz (texto secundario, bordes, blanco puro). -->
+    <color name="nova_texto_secundario">#5B6B65</color>
+    <color name="nova_gris_borde">#DDD6CB</color>
+    <color name="nova_blanco">#FFFFFF</color>
 </resources>

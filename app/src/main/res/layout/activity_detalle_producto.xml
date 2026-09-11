@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nova_fondo">
+
+    <!-- Contenido que se puede desplazar (scroll) -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/barraInferiorDetalle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Encabezado: botón regresar + título de la pantalla -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/botonRegresarDetalle"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/fondo_circulo_boton"
+                    android:contentDescription="@string/descripcion_regresar"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_flecha_atras" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="@string/titulo_detalle_producto"
+                    android:textColor="@color/nova_texto"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Tarjeta con la imagen del producto -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:background="@drawable/fondo_tarjeta_redondeada">
+
+                <TextView
+                    android:id="@+id/textoCategoriaDetalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_margin="14dp"
+                    android:background="@drawable/fondo_etiqueta_categoria"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textColor="@color/nova_confianza"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="Electrónica" />
+
+                <ImageView
+                    android:id="@+id/imagenProductoDetalle"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/descripcion_imagen_producto" />
+            </FrameLayout>
+
+            <!-- Título y precio -->
+            <TextView
+                android:id="@+id/textoTituloDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:textColor="@color/nova_texto"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                tools:text="Audífonos Aura" />
+
+            <TextView
+                android:id="@+id/textoPrecioDetalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/nova_texto"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="$899.00" />
+
+            <!-- Descripción -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="@string/subtitulo_descripcion"
+                android:textColor="@color/nova_texto"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textoDescripcionDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/nova_texto_secundario"
+                android:textSize="14sp"
+                tools:text="Sonido envolvente en un diseño ligero. Diadema ajustable y almohadillas suaves." />
+
+            <!-- Banner de confirmación: oculto hasta agregar al carrito -->
+            <LinearLayout
+                android:id="@+id/tarjetaConfirmacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/fondo_confirmacion"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textoConfirmacion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/nova_blanco"
+                    android:textSize="13sp"
+                    tools:text="1 unidad añadida al carrito." />
+
+                <Button
+                    android:id="@+id/botonVerCarrito"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:text="@string/accion_ver_carrito"
+                    android:textAllCaps="false"
+                    android:textColor="@color/nova_blanco"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Barra inferior fija: selector de cantidad + botón principal -->
+    <LinearLayout
+        android:id="@+id/barraInferiorDetalle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/nova_blanco"
+        android:elevation="8dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/contenedorCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/etiqueta_cantidad"
+                    android:textColor="@color/nova_texto_secundario"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/textoSubtotalDetalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/nova_texto"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="Subtotal: $899.00" />
+            </LinearLayout>
+
+            <!-- Botones grandes (48dp) según la referencia de accesibilidad del PDF -->
+            <ImageButton
+                android:id="@+id/botonRestarDetalle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/fondo_circulo_boton"
+                android:contentDescription="@string/descripcion_restar"
+                android:src="@drawable/ic_quitar" />
+
+            <TextView
+                android:id="@+id/textoCantidadDetalle"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/nova_texto"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="1" />
+
+            <ImageButton
+                android:id="@+id/botonSumarDetalle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/fondo_circulo_boton"
+                android:contentDescription="@string/descripcion_sumar"
+                android:src="@drawable/ic_agregar" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/botonAgregarCarrito"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/fondo_boton_primario"
+            android:text="@string/accion_agregar_carrito"
+            android:textAllCaps="false"
+            android:textColor="@color/nova_blanco"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
