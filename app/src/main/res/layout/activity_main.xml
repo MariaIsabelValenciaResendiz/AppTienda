@@ -5,15 +5,149 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/nova_background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/screen_horizontal_padding"
+            android:paddingTop="@dimen/spacing_extra_large"
+            android:paddingRight="@dimen/screen_horizontal_padding"
+            android:paddingBottom="@dimen/spacing_extra_large">
+
+            <TextView
+                android:id="@+id/textAppName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textColor="@color/nova_petroleum_green"
+                android:textSize="@dimen/text_size_display"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/accessDeniedAlert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:background="@drawable/fondo_alerta_error"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_normal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="@dimen/action_icon_size"
+                    android:layout_height="@dimen/action_icon_size"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/icono_error" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_weight="1"
+                    android:text="@string/access_denied"
+                    android:textColor="@color/nova_error"
+                    android:textSize="@dimen/text_size_body"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_extra_large"
+                android:background="@drawable/fondo_tarjeta"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_large">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temporary_catalog_title"
+                    android:textColor="@color/nova_text_primary"
+                    android:textSize="@dimen/text_size_title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/temporary_catalog_description"
+                    android:textColor="@color/nova_text_secondary"
+                    android:textSize="@dimen/text_size_body" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_extra_large"
+                    android:text="@string/select_role"
+                    android:textColor="@color/nova_text_primary"
+                    android:textSize="@dimen/text_size_body"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupRole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radioAdministrator"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/nova_action_orange"
+                        android:minHeight="@dimen/minimum_touch_size"
+                        android:text="@string/role_administrator"
+                        android:textColor="@color/nova_text_primary"
+                        android:textSize="@dimen/text_size_body" />
+
+                    <RadioButton
+                        android:id="@+id/radioClient"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/nova_action_orange"
+                        android:checked="true"
+                        android:minHeight="@dimen/minimum_touch_size"
+                        android:text="@string/role_client"
+                        android:textColor="@color/nova_text_primary"
+                        android:textSize="@dimen/text_size_body" />
+
+                    <RadioButton
+                        android:id="@+id/radioAuditor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/nova_action_orange"
+                        android:minHeight="@dimen/minimum_touch_size"
+                        android:text="@string/role_auditor"
+                        android:textColor="@color/nova_text_primary"
+                        android:textSize="@dimen/text_size_body" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/adminActionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_normal" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

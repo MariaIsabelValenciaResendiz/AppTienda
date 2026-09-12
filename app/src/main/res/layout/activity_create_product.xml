@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/createProductRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nova_background"
+    tools:context=".ui.productcreate.CreateProductActivity">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/nova_background"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/primary_button_height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/spacing_small"
+        android:paddingRight="@dimen/screen_horizontal_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="@dimen/minimum_touch_size"
+            android:layout_height="@dimen/minimum_touch_size"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/content_description_back"
+            android:padding="@dimen/spacing_medium"
+            android:src="@drawable/icono_regresar" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:text="@string/create_product_title"
+            android:textColor="@color/nova_text_primary"
+            android:textSize="@dimen/text_size_subtitle"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomActions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/nova_surface"
+        android:elevation="@dimen/spacing_small"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/screen_horizontal_padding"
+        android:paddingTop="@dimen/spacing_medium"
+        android:paddingRight="@dimen/screen_horizontal_padding"
+        android:paddingBottom="@dimen/spacing_normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/savingContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/spacing_small"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ProgressBar
+                android:id="@+id/saveProgressBar"
+                android:layout_width="@dimen/action_icon_size"
+                android:layout_height="@dimen/action_icon_size"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/nova_petroleum_green" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:text="@string/saving_product"
+                android:textColor="@color/nova_text_secondary"
+                android:textSize="@dimen/text_size_body_small" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSaveProduct"
+            style="@style/Widget.Nova.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/save_product"
+            android:text="@string/save_product" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonCancel"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_extra_small"
+            android:contentDescription="@string/cancel"
+            android:minHeight="@dimen/minimum_touch_size"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/nova_petroleum_green"
+            android:textSize="@dimen/text_size_body" />
+
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/formScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        app:layout_constraintBottom_toTopOf="@id/bottomActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/screen_horizontal_padding"
+            android:paddingTop="@dimen/spacing_normal"
+            android:paddingRight="@dimen/screen_horizontal_padding"
+            android:paddingBottom="@dimen/spacing_section">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fondo_tarjeta"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_large">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/article_information_title"
+                    android:textColor="@color/nova_text_primary"
+                    android:textSize="@dimen/text_size_title"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:text="@string/all_fields_required"
+                    android:textColor="@color/nova_text_secondary"
+                    android:textSize="@dimen/text_size_body" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/titleInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_extra_large"
+                    android:hint="@string/title_label"
+                    app:boxBackgroundColor="@color/nova_surface"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusBottomStart="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopStart="@dimen/corner_radius_medium"
+                    app:boxStrokeColor="@color/nova_petroleum_green"
+                    app:boxStrokeErrorColor="@color/nova_error"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/nova_error"
+                    app:hintTextColor="@color/nova_text_secondary"
+                    app:placeholderText="@string/title_example">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapSentences"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/primary_button_height"
+                        android:textColor="@color/nova_text_primary"
+                        android:textSize="@dimen/text_size_body" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/priceInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:hint="@string/price_label"
+                    app:boxBackgroundColor="@color/nova_surface"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusBottomStart="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopStart="@dimen/corner_radius_medium"
+                    app:boxStrokeColor="@color/nova_petroleum_green"
+                    app:boxStrokeErrorColor="@color/nova_error"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/nova_error"
+                    app:hintTextColor="@color/nova_text_secondary"
+                    app:placeholderText="@string/price_example"
+                    app:prefixText="$ ">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:digits="0123456789.,"
+                        android:imeOptions="actionNext"
+                        android:inputType="numberDecimal"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/primary_button_height"
+                        android:textColor="@color/nova_text_primary"
+                        android:textSize="@dimen/text_size_body" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/descriptionInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:hint="@string/description_label"
+                    app:boxBackgroundColor="@color/nova_surface"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusBottomStart="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopStart="@dimen/corner_radius_medium"
+                    app:boxStrokeColor="@color/nova_petroleum_green"
+                    app:boxStrokeErrorColor="@color/nova_error"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/nova_error"
+                    app:hintTextColor="@color/nova_text_secondary"
+                    app:placeholderText="@string/description_example">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|start"
+                        android:imeOptions="actionNext"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:maxLines="6"
+                        android:minHeight="@dimen/multiline_input_min_height"
+                        android:minLines="4"
+                        android:paddingTop="@dimen/spacing_normal"
+                        android:textColor="@color/nova_text_primary"
+                        android:textSize="@dimen/text_size_body" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/imageUrlInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:hint="@string/image_url_label"
+                    app:boxBackgroundColor="@color/nova_surface"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusBottomStart="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopStart="@dimen/corner_radius_medium"
+                    app:boxStrokeColor="@color/nova_petroleum_green"
+                    app:boxStrokeErrorColor="@color/nova_error"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/nova_error"
+                    app:hintTextColor="@color/nova_text_secondary"
+                    app:placeholderText="@string/image_url_example">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/inputImageUrl"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="textUri"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/primary_button_height"
+                        android:textColor="@color/nova_text_primary"
+                        android:textSize="@dimen/text_size_body" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/categoryInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:hint="@string/category_label"
+                    app:boxBackgroundColor="@color/nova_surface"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusBottomStart="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopEnd="@dimen/corner_radius_medium"
+                    app:boxCornerRadiusTopStart="@dimen/corner_radius_medium"
+                    app:boxStrokeColor="@color/nova_petroleum_green"
+                    app:boxStrokeErrorColor="@color/nova_error"
+                    app:endIconContentDescription="@string/content_description_dropdown"
+                    app:endIconMode="dropdown_menu"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/nova_error"
+                    app:hintTextColor="@color/nova_text_secondary"
+                    app:placeholderText="@string/category_example">
+
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/inputCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:importantForAutofill="no"
+                        android:inputType="none"
+                        android:maxLines="1"
+                        android:minHeight="@dimen/primary_button_height"
+                        android:textColor="@color/nova_text_primary"
+                        android:textSize="@dimen/text_size_body" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
