@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.estructura.R;
 import com.example.estructura.model.Producto;
+import com.example.estructura.productdetail.ProductDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,15 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         Glide.with(holder.itemView.getContext())
                 .load(producto.getImagenUrl())
                 .into(holder.imgProducto);
+
+        holder.itemView.setOnClickListener(view ->
+                view.getContext().startActivity(
+                        ProductDetailActivity.createIntent(
+                                view.getContext(),
+                                producto.getId()
+                        )
+                )
+        );
     }
 
     @Override

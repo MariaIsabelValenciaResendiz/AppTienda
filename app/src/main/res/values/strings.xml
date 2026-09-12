@@ -34,4 +34,38 @@
 
     <string name="descripcion_icono_error">Ícono de error</string>
     <string name="descripcion_avatar">Iniciales del usuario</string>
+    <!-- US05: detalle individual del producto -->
+    <string name="product_detail_title">Detalle del producto</string>
+    <string name="product_information_title">Información del producto</string>
+    <string name="product_category_label">Categoría</string>
+    <string name="product_identifier_label">Identificador</string>
+    <string name="product_description_label">Descripción</string>
+
+    <string name="product_price_format">$%1$.2f MXN</string>
+    <string name="product_identifier_format">ID: %1$d</string>
+    <string name="quantity_value_format">%1$d</string>
+    <string name="subtotal_format">Subtotal: $%1$.2f MXN</string>
+
+    <string name="quantity_label">Cantidad</string>
+    <string name="decrease_quantity">Disminuir cantidad</string>
+    <string name="increase_quantity">Aumentar cantidad</string>
+    <string name="add_to_cart">Agregar al carrito</string>
+
+    <string name="edit_product">Editar producto</string>
+    <string name="delete_product">Eliminar producto</string>
+    <string name="read_only">Solo lectura</string>
+    <string name="return_to_catalog">Volver al catálogo</string>
+
+    <string name="loading_product">Cargando producto…</string>
+    <string name="product_unavailable">Producto no disponible. Volviste al catálogo.</string>
+    <string name="invalid_product_id">Identificador de producto inválido.</string>
+
+    <string name="cart_integration_pending">Integración con carrito pendiente de US09.</string>
+    <string name="edit_integration_pending">Integración con edición pendiente de US07.</string>
+    <string name="delete_integration_pending">Integración con eliminación pendiente de US08.</string>
+
+    <string name="content_description_back">Regresar a la pantalla anterior</string>
+    <string name="content_description_product_image">Imagen del producto</string>
+    <string name="content_description_edit">Editar producto</string>
+    <string name="content_description_delete">Eliminar producto</string>
 </resources>

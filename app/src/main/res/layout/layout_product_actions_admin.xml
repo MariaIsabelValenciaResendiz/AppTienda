@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/adminActionsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/nova_surface"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/screen_horizontal_padding"
+    android:paddingTop="@dimen/spacing_normal"
+    android:paddingRight="@dimen/screen_horizontal_padding"
+    android:paddingBottom="@dimen/spacing_normal">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonEditProduct"
+        style="@style/Widget.Nova.Button.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/content_description_edit"
+        android:text="@string/edit_product"
+        app:icon="@drawable/icono_de_edicion"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/spacing_small" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonDeleteProduct"
+        style="@style/Widget.Nova.Button.DangerText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:contentDescription="@string/content_description_delete"
+        android:text="@string/delete_product"
+        app:icon="@drawable/icono_de_eliminacion"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/spacing_small" />
+
+</LinearLayout>

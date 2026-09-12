@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/auditorActionsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/nova_surface"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/screen_horizontal_padding"
+    android:paddingTop="@dimen/spacing_normal"
+    android:paddingRight="@dimen/screen_horizontal_padding"
+    android:paddingBottom="@dimen/spacing_normal">
+
+    <TextView
+        android:id="@+id/textReadOnly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_de_etiquetas"
+        android:drawableStart="@drawable/icono_de_solo_lectura"
+        android:drawablePadding="@dimen/spacing_small"
+        android:gravity="center_vertical"
+        android:text="@string/read_only"
+        android:textColor="@color/nova_petroleum_green"
+        android:textSize="@dimen/text_size_body_small"
+        android:textStyle="bold" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonReturnToCatalog"
+        style="@style/Widget.Nova.Button.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_normal"
+        android:contentDescription="@string/return_to_catalog"
+        android:text="@string/return_to_catalog" />
+
+</LinearLayout>
