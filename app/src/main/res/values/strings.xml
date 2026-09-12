@@ -68,4 +68,56 @@
     <string name="content_description_product_image">Imagen del producto</string>
     <string name="content_description_edit">Editar producto</string>
     <string name="content_description_delete">Eliminar producto</string>
+
+    <!-- US06: agregar un producto -->
+    <string name="new_product">Nuevo producto</string>
+    <string name="access_denied">No tienes permiso para acceder a esa sección.</string>
+    <string name="create_product_title">Nuevo producto</string>
+    <string name="article_information_title">Información del artículo</string>
+    <string name="all_fields_required">Todos los campos son obligatorios.</string>
+
+    <string name="title_label">Título</string>
+    <string name="title_example">Ej. Audífonos Aura</string>
+    <string name="price_label">Precio (MXN)</string>
+    <string name="price_example">0.00</string>
+    <string name="description_label">Descripción</string>
+    <string name="description_example">Describe el producto</string>
+    <string name="image_url_label">URL de la imagen</string>
+    <string name="image_url_example">https://ejemplo.com/imagen.jpg</string>
+    <string name="category_label">Categoría</string>
+    <string name="category_example">Selecciona una categoría</string>
+
+    <string name="category_electronics">Electrónica</string>
+    <string name="category_mens_clothing">Ropa de hombre</string>
+    <string name="category_womens_clothing">Ropa de mujer</string>
+    <string name="category_jewelery">Joyería</string>
+
+    <string-array name="product_categories">
+        <item>@string/category_electronics</item>
+        <item>@string/category_mens_clothing</item>
+        <item>@string/category_womens_clothing</item>
+        <item>@string/category_jewelery</item>
+    </string-array>
+
+    <string name="save_product">Guardar producto</string>
+    <string name="cancel">Cancelar</string>
+    <string name="saving_product">Guardando producto…</string>
+
+    <string name="title_required_error">Escribe el título del producto.</string>
+    <string name="price_invalid_error">Ingresa un precio numérico mayor que cero.</string>
+    <string name="description_required_error">Escribe una descripción del producto.</string>
+    <string name="image_url_invalid_error">Escribe una URL válida con https://.</string>
+    <string name="category_required_error">Selecciona una categoría.</string>
+    <string name="create_product_network_error">No se pudo crear el producto. Revisa tu conexión e inténtalo nuevamente.</string>
+
+    <string name="product_created_title">Producto creado</string>
+    <string name="product_created_description">Tu artículo se registró correctamente en esta demostración.</string>
+    <string name="new_identifier">Nuevo identificador</string>
+    <string name="created_product_id_format">#%1$d</string>
+    <string name="simulated_creation">Creación simulada</string>
+    <string name="add_another_product">Agregar otro producto</string>
+
+    <string name="content_description_dropdown">Mostrar categorías disponibles</string>
+    <string name="content_description_access_denied">Acceso restringido</string>
+    <string name="content_description_created">Producto creado correctamente</string>
 </resources>

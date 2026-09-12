@@ -23,6 +23,8 @@ import com.example.estructura.modelos.RolUsuario;
 import com.example.estructura.pantallas.LoginActivity;
 import com.example.estructura.pantallas.PrincipalActivity;
 import com.example.estructura.utilidades.GestorSesion;
+import com.example.estructura.productcreate.CreateProductActivity;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.List;
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private GestorSesion gestorSesion;
 
     private List<String> listaCategorias;
+    private MaterialButton btnNuevoProducto;
     private String categoriaActual = "todos";
 
     @Override
@@ -67,7 +70,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         inicializarVistas();
-        txtRolUsuario.setText(obtenerNombreRol(gestorSesion.obtenerRol()));
+        RolUsuario rolActual = gestorSesion.obtenerRol();
+        txtRolUsuario.setText(obtenerNombreRol(rolActual));
+
+        btnNuevoProducto.setVisibility(
+                rolActual == RolUsuario.ADMINISTRADOR
+                        ? View.VISIBLE
+                        : View.GONE
+        );
+
+        btnNuevoProducto.setOnClickListener(v ->
+                startActivity(
+                        CreateProductActivity.createIntent(MainActivity.this)
+                )
+        );
 
         btnMiCuenta.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
@@ -90,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void inicializarVistas() {
+        btnNuevoProducto = findViewById(R.id.btnNuevoProducto);
         rvProductos = findViewById(R.id.rvProductos);
         progressBar = findViewById(R.id.progressBar);
         llError = findViewById(R.id.llError);

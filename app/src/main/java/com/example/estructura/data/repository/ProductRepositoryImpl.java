@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import com.example.estructura.data.model.Product;
 import com.example.estructura.data.remote.ProductApiService;
 import com.example.estructura.domain.repository.ProductRepository;
+import com.example.estructura.data.model.CreateProductRequest;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,6 +58,56 @@ public class ProductRepositoryImpl implements ProductRepository {
                 callback.onError(throwable);
             }
         });
+    }
+    @Override
+    public void createProduct(
+            CreateProductRequest request,
+            ProductRepository.CreateProductCallback callback
+    ) {
+        if (request == null) {
+            throw new IllegalArgumentException(
+                    "CreateProductRequest no puede ser nulo."
+            );
+        }
+
+        if (callback == null) {
+            throw new IllegalArgumentException(
+                    "CreateProductCallback no puede ser nulo."
+            );
+        }
+
+        productApiService.createProduct(request).enqueue(
+                new Callback<Product>() {
+                    @Override
+                    public void onResponse(
+                            @NonNull Call<Product> call,
+                            @NonNull Response<Product> response
+                    ) {
+                        Product createdProduct = response.body();
+
+                        if (response.isSuccessful()
+                                && createdProduct != null
+                                && createdProduct.getId() > 0) {
+                            callback.onSuccess(createdProduct);
+                            return;
+                        }
+
+                        callback.onError(
+                                new IllegalStateException(
+                                        "La API devolvió una respuesta inválida."
+                                )
+                        );
+                    }
+
+                    @Override
+                    public void onFailure(
+                            @NonNull Call<Product> call,
+                            @NonNull Throwable throwable
+                    ) {
+                        callback.onError(throwable);
+                    }
+                }
+        );
     }
 
     private boolean isValidProduct(Product product) {

@@ -27,4 +27,6 @@
     <dimen name="text_size_subtitle">18sp</dimen>
     <dimen name="text_size_title">24sp</dimen>
     <dimen name="text_size_price">28sp</dimen>
+    <dimen name="multiline_input_min_height">120dp</dimen>
+    <dimen name="text_size_display">28sp</dimen>
 </resources>
