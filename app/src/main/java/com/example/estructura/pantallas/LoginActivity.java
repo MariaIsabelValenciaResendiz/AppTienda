@@ -12,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.activity.OnBackPressedCallback;
 
 import com.example.estructura.R;
+import com.example.estructura.MainActivity;
 import com.example.estructura.modelos.RespuestaLogin;
 import com.example.estructura.modelos.RolUsuario;
 import com.example.estructura.modelos.SolicitudLogin;
@@ -69,6 +71,15 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle estadoGuardado) {
         super.onCreate(estadoGuardado);
         setContentView(R.layout.activity_login);
+        getOnBackPressedDispatcher().addCallback(
+                this,
+                new OnBackPressedCallback(true) {
+                    @Override
+                    public void handleOnBackPressed() {
+                        finishAffinity();
+                    }
+                }
+        );
 
         // Solución al teclado tapando la pantalla: en vez de confiar
         // en que el sistema "redimensione" solo (Android 15+ ya no lo
@@ -105,7 +116,9 @@ public class LoginActivity extends AppCompatActivity {
         configurarBotonLogin();
     }
 
-    /** Conecta cada variable de Java con su elemento del XML. */
+    /**
+     * Conecta cada variable de Java con su elemento del XML.
+     */
     private void vincularVistas() {
         campoUsuario = findViewById(R.id.campo_usuario);
         campoContrasena = findViewById(R.id.campo_contrasena);
@@ -122,9 +135,9 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Método principal: se ejecuta cuando el usuario presiona el botón.
      * Sigue el orden exacto que pide la historia de usuario:
-     *   1) Validar que los campos no estén vacíos.
-     *   2) Verificar conectividad (Escenario 3) ANTES de llamar la API.
-     *   3) Si hay conexión, llamar a POST /auth/login (Escenario 1 y 2).
+     * 1) Validar que los campos no estén vacíos.
+     * 2) Verificar conectividad (Escenario 3) ANTES de llamar la API.
+     * 3) Si hay conexión, llamar a POST /auth/login (Escenario 1 y 2).
      */
     private void intentarIniciarSesion() {
         ocultarBannerEstado();
@@ -244,7 +257,7 @@ public class LoginActivity extends AppCompatActivity {
      * "Atrás" no regrese jamás a un estado sin sesión de forma extraña.
      */
     private void irAPantallaPrincipal() {
-        Intent intent = new Intent(this, PrincipalActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
@@ -265,20 +278,19 @@ public class LoginActivity extends AppCompatActivity {
         bannerEstado.setVisibility(View.GONE);
     }
 
+    private String obtenerNombreRol(RolUsuario rol) {
+        switch (rol) {
+            case ADMINISTRADOR:
+                return "Administrador";
+            case AUDITOR:
+                return "Auditor";
+            case CLIENTE:
+            default:
+                return "Cliente";
+        }
+    }
     private void mostrarCargando(boolean estaCargando) {
         barraProgreso.setVisibility(estaCargando ? View.VISIBLE : View.GONE);
         botonIniciarSesion.setEnabled(!estaCargando);
-    }
-
-    /**
-     * US02 - Escenario 2 (parte que le corresponde a esta pantalla):
-     * Como LoginActivity es la raíz de la app (no tiene ninguna otra
-     * Activity debajo en la pila gracias a CLEAR_TASK), presionar
-     * "Atrás" aquí debe CERRAR la aplicación, nunca "regresar" a un
-     * catálogo con datos de un usuario ya deslogueado.
-     */
-    @Override
-    public void onBackPressed() {
-        finishAffinity();
     }
 }

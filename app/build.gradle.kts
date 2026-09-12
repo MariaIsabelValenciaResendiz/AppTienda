@@ -49,4 +49,6 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 // ---------- Almacenamiento seguro (token cifrado) ----------
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
+    // ---------- Imágenes de productos ----------
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

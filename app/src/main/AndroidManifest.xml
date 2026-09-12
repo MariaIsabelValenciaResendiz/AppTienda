@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permiso para poder hacer peticiones HTTP a FakeStoreAPI -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <!-- Permiso para poder PREGUNTAR si hay conexión (US01 - Escenario 3) -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -14,13 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NovaTienda">
 
-        <!-- Pantalla de Login: es la puerta de entrada de la app.
-             android:exported="true" es obligatorio en apps recientes
-             para cualquier Activity con intent-filter LAUNCHER. -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".pantallas.PrincipalActivity"
+            android:exported="false" />
+
         <activity
             android:name=".pantallas.LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -28,11 +33,6 @@
 
         </activity>
 
-        <!-- Pantalla "Mi cuenta" / principal temporal, a la que se
-             llega SOLO después de iniciar sesión correctamente. -->
-        <activity
-            android:name=".pantallas.PrincipalActivity"
-            android:exported="false" />
-
     </application>
+
 </manifest>
