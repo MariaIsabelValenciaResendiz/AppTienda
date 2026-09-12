@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FBF6EF"
+    android:padding="20dp">
+
+    <!-- Manija superior -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#DDDDDD"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elige una categoría"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#1A1A1A" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:text="Encuentra lo que estás buscando."
+        android:textSize="13sp"
+        android:textColor="#888888" />
+
+    <!-- Contenedor de las categorías, se llena desde código -->
+    <LinearLayout
+        android:id="@+id/llListaCategorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <TextView
+        android:id="@+id/btnCancelar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:padding="14dp"
+        android:text="Cancelar"
+        android:textSize="15sp"
+        android:textColor="#1A1A1A"
+        android:clickable="true"
+        android:focusable="true" />
+
+</LinearLayout>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/productDetailRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nova_background"
+    tools:context=".productdetail.ProductDetailActivity">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/nova_background"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/primary_button_height"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/spacing_small"
+        android:paddingRight="@dimen/screen_horizontal_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="@dimen/minimum_touch_size"
+            android:layout_height="@dimen/minimum_touch_size"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/content_description_back"
+            android:padding="@dimen/spacing_medium"
+            android:src="@drawable/icono_de_regreso" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:text="@string/product_detail_title"
+            android:textColor="@color/nova_text_primary"
+            android:textSize="@dimen/text_size_subtitle"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/productActionsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/nova_surface"
+        android:elevation="@dimen/spacing_small"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/contentScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/productActionsContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/screen_horizontal_padding"
+            android:paddingTop="@dimen/spacing_normal"
+            android:paddingRight="@dimen/screen_horizontal_padding"
+            android:paddingBottom="@dimen/spacing_section">
+
+            <TextView
+                android:id="@+id/textProductCategoryBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fondo_de_etiquetas"
+                android:textColor="@color/nova_petroleum_green"
+                android:textSize="@dimen/text_size_body_small"
+                android:textStyle="bold"
+                tools:text="electronics" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/product_image_height"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:background="@drawable/fondo_de_la_imagen"
+                android:padding="@dimen/spacing_extra_large">
+
+                <ImageView
+                    android:id="@+id/imageProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/content_description_product_image"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/imagen_provisional_para_github" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/textProductTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_extra_large"
+                android:textColor="@color/nova_text_primary"
+                android:textSize="@dimen/text_size_title"
+                android:textStyle="bold"
+                tools:text="Título dinámico del producto" />
+
+            <TextView
+                android:id="@+id/textProductPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:textColor="@color/nova_action_orange"
+                android:textSize="@dimen/text_size_price"
+                android:textStyle="bold"
+                tools:text="$109.95 MXN" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_extra_large"
+                android:text="@string/product_description_label"
+                android:textColor="@color/nova_text_primary"
+                android:textSize="@dimen/text_size_subtitle"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textProductDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:lineSpacingExtra="@dimen/spacing_extra_small"
+                android:textColor="@color/nova_text_secondary"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/text_size_body"
+                tools:text="Descripción completa obtenida dinámicamente desde Fake Store API." />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_extra_large"
+                android:background="@drawable/fondo_de_tarjetas"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/product_information_title"
+                    android:textColor="@color/nova_text_primary"
+                    android:textSize="@dimen/text_size_subtitle"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:text="@string/product_category_label"
+                    android:textColor="@color/nova_text_secondary"
+                    android:textSize="@dimen/text_size_body_small" />
+
+                <TextView
+                    android:id="@+id/textProductInfoCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_extra_small"
+                    android:textColor="@color/nova_text_primary"
+                    android:textSize="@dimen/text_size_body"
+                    android:textStyle="bold"
+                    tools:text="electronics" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:text="@string/product_identifier_label"
+                    android:textColor="@color/nova_text_secondary"
+                    android:textSize="@dimen/text_size_body_small" />
+
+                <TextView
+                    android:id="@+id/textProductInfoId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_extra_small"
+                    android:textColor="@color/nova_text_primary"
+                    android:textSize="@dimen/text_size_body"
+                    android:textStyle="bold"
+                    tools:text="ID: 1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/loadingContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_extra_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="@dimen/minimum_touch_size"
+            android:layout_height="@dimen/minimum_touch_size"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/nova_petroleum_green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:text="@string/loading_product"
+            android:textColor="@color/nova_text_secondary"
+            android:textSize="@dimen/text_size_body" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
